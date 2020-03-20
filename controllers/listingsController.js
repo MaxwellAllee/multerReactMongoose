@@ -14,11 +14,13 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
-  create: function(req, res) {
-    db.Listing
-      .create(req.body)
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
+  create: async function(req, res) {
+    // db.Listing
+    //   .create(req.body)
+    //   .then(dbModel => res.json(dbModel))
+    //   .catch(err => res.status(422).json(err));
+    console.log( await req.file, '<====')
+    res.sendStatus(200)
   },
   update: function(req, res) {
     db.Listing

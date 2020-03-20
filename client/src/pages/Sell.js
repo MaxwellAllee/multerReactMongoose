@@ -33,7 +33,7 @@ function handleFormSubmit(event) {
     console.log("logged");
     if (formObject.title && formObject.price && formObject.description) {
       API.saveListing({
-        img: formObject.img,
+        img: formObject.myImage,
         title: formObject.title,
         price: formObject.price,
         description: formObject.description
