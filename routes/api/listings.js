@@ -1,10 +1,12 @@
 const router = require("express").Router();
 const listingsController = require("../../controllers/listingsController");
-
-// Matches with "/api/listings"
+//const Grid = require('gridfs-stream');
+const multer = require('multer');
+const storage = require("../../controllers/imageController")
+const upload = multer({ storage });
 router.route("/")
   .get(listingsController.findAll)
-  .post(listingsController.create);
+  .post(upload.single('file'), listingsController.create);
 
 // Matches with "/api/listings/:id"
 router
@@ -13,4 +15,4 @@ router
   .put(listingsController.update)
   .delete(listingsController.remove);
 
-module.exports = router;
+module.exports = router; 
