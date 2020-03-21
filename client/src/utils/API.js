@@ -17,14 +17,21 @@ export default {
   saveListing: function(listingData) {
     console.log(listingData)
     const test = new FormData();
-    test.append('file','test')
-    // test.append('title', listingData.title)
-    // test.append('price', listingData.price)
-    // test.append('description', listingData.description)
+    test.append('file',listingData.file)
+    // test.append('body',
+    // {
+    //   title: listingData.title,
+    //   price: listingData.price,
+    //   description: listingData.description
+    // }
+    // )
+    test.append('title', listingData.title)
+    test.append('price', listingData.price)
+    test.append('description', listingData.description)
     console.log(test)
     const config = { headers:{
       'content-type': 'multipart/form-data'
     }}
-    return axios.post("/api/listings", test, config);
+    return axios.post("/api/listings/", test, config);
   }
 };
