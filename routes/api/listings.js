@@ -15,4 +15,4 @@ router
   .put(listingsController.update)
   .delete(listingsController.remove);
 
-module.exports = router;
+module.exports = router; 
